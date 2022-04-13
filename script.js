@@ -18,7 +18,18 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibW9oaXRndXB0YTA2MDQwMiIsImEiOiJjbDF4NjlvczQwN
             center:center,
             // center: [-74.5, 40], // starting position [lng, lat]
             zoom: 8 // starting zoom
+            
         });
+        const nav = new mapboxgl.NavigationControl({
+            visualizePitch: true
+        });
+        map.addControl(nav, 'bottom-right');
+        const directions = new MapboxDirections({
+            accessToken:mapboxgl.accessToken,
+            unit:'metric'
+        })
+        map.addControl(directions,'top-left')
     }
+    
 
     
